@@ -3,6 +3,9 @@ def comidaFavorita = 'Pizza'
 def zodiag = 'Virgo'
 def puesto = 'Presidente de un pais con paraiso fiscal'
 def salBruto = 100000
+def job = Jenkins.getInstance().getItemByFullName(env.JOB_BASE_NAME, Job.class)
+def build = job.getBuildByNumber(env.BUILD_ID as int)
+def userId = build.getCause(Cause.UserIdCause).getUserId()
 
 def calcNeto(Integer salBruto)
 {
@@ -17,38 +20,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Top 5 de peliculas favoritas') {
+        stage('job') {
             steps {
-                echo topPeli
+                println job
             }
         }
-        stage('Comida favorita') {
+        stage('build') {
             steps {
-                echo comidaFavorita
+                println build
             }
         }
-        stage('Signo zodiacal') {
+        stage('userId') {
             steps {
-                echo zodiag
+                println userId
             }
         }
-        stage('Puesto actual') {
-            steps {
-                echo puesto
-            }
-        }
-        stage('Salario bruto') {
-            steps {
-                println salBruto
-            }
-        }
-        stage("Salario Neto")
-            {
-                steps
-                {
-                    calcNeto(salBruto)
-                }
-                
-            }        
+     
     }
 }
