@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Salario bruto') {
             steps {
-                echo salBruto
+                println salBruto
             }
         }
         stage("Salario Neto")
