@@ -1,0 +1,38 @@
+def clima = "Nublado y hace frío"
+def habitantes = 50000
+
+def showPopulation(neta){
+ if(neta == true){
+    echo habitantes / 2
+ } else {
+    echo habitantes
+ }
+}
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Clima') {
+            steps {
+                echo clima
+            }
+        }
+        stage("Poblacion")
+            {
+                steps
+                {
+                    showPopulation(false)
+                }
+                
+            }      
+            stage("Poblacion neta")
+            {
+                steps
+                {
+                    showPopulation(true)
+                }
+                
+            }               
+    }
+}
