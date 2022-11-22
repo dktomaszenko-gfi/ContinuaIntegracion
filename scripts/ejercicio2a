@@ -1,7 +1,7 @@
 def clima = "Nublado y hace frío"
-def habitantes = 50000
 
 def showPopulation(neta){
+ def habitantes = 50000    
  if(neta == true){
     echo habitantes / 2
  } else {
