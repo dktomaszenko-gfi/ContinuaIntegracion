@@ -1,4 +1,5 @@
-def clima = "Nublado y hace frío, bueno un poco"
+def clima = "Nublado y hace frío"
+def habitantes = 50000
 pipeline {
     agent any
 
@@ -8,5 +9,15 @@ pipeline {
                 echo clima
             }
         }
+        stage("Poblacion neta")
+            {
+                steps
+                {
+                    script {
+                        println habitantes / 2
+                    }
+                }
+                
+            }        
     }
 }
