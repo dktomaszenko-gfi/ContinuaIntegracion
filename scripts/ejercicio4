@@ -1,13 +1,30 @@
+userName = 'Darek'
+userID = 'dktomaszenko'
+def mostrarVersionMaven(String a)
+{
+    bat "java -version"
+    echo a
+}
+
 pipeline {
-        agent any
-        stages {  
-            stage ("first") {
-                tools {
-                   jdk "jdk-11.0.12"
-                }
-                steps {
-                    sh 'java -version'
-                }
+    agent any
+
+    stages {
+        stage('Nombre usuario') {
+            steps {
+                println userName
             }
-       }
+        }
+        stage('ID usuario') {
+            steps {
+                println userID
+            }
+        }
+        stage('Java version') {
+            steps {
+                mostrarVersionMaven("Output")
+            }
+        }
+     
+    }
 }
