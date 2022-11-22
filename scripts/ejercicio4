@@ -31,20 +31,6 @@ pipeline {
                     }
                 }
             }
-        stage('Foo') {
-            steps {
-                script {
-                    def now = new Date()
-                    def _h = int hour(now)
-                    if(_h > 12){
-                        echo "Darek-OK"
-                    } else {
-                        echo "Darek-KO"
-                    }
-                    
-                }
-            } 
-        }            
-     
+    
     }
 }
