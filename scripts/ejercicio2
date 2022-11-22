@@ -1,10 +1,11 @@
+def clima = "Nublado y hace frío, bueno un poco"
 pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Clima') {
             steps {
-                echo 'Hello World'
+                echo clima
             }
         }
     }

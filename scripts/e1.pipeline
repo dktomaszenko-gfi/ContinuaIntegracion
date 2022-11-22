@@ -1,34 +1,52 @@
+def ciudad = "Alicante"
+def miNombre = "Darek"
+def numero1 = 1
+def numero2 = 2
+
 pipeline
 	{
 	    agent any
 	    stages
 	    {
-	        stage("Muestro el primer numero")
+	        stage("Fecha actual")
 	        {
 	            steps
 	            {
 	                script
 	                {
-	                if( numero1 == 1)
-	                {
-	                    echo 'El numero es valido!'
-	                }
-	                else
-	                {
-	                    ceho 'Ingresar un numero valido'
-	                }
+                        def fecha = new Date()
+	                    println fecha
 	                }
 	            }
 	        }
-	        stage("Muestro el segundo numero")
+	        stage("Ciudad donde resides actualmente")
 	        {
 	            steps
 	            {
-	                println numero2
+	                println ciudad
 	                
 	            }
 	            
 	        }
+	        stage("Nombre del ejecutante")
+	        {
+	            steps
+	            {
+	                println miNombre
+	                
+	            }
+	            
+	        }
+	        stage("Suma")
+	        {
+	            steps
+	            {
+	                script {
+	                    printIn numero1 + numero2
+	                }
+	            }
+	            
+	        }	        
 	        
 	    }
 	}
