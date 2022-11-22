@@ -3,9 +3,9 @@ def clima = "Nublado y hace frío"
 def showPopulation(neta){
  def habitantes = 50000    
  if(neta == true){
-    echo habitantes / 2
+    println habitantes / 2
  } else {
-    echo habitantes
+    println habitantes
  }
 }
 
