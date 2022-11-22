@@ -10,14 +10,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Nombre usuario') {
+        stage('Info') {
             steps {
-                println userName
-            }
-        }
-        stage('ID usuario') {
-            steps {
-                println userID
+                echo "Proceso ejecutado por ${userName}, identificado como ${userID}"
             }
         }
         stage('Java version') {
