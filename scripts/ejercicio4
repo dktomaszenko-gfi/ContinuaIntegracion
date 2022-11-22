@@ -35,8 +35,8 @@ pipeline {
             steps {
                 script {
                     def now = new Date()
-                    def _h = now.format("HH.mm", TimeZone.getTimeZone('Europe/Madrid')) 
-                    if(_h > 12.00){
+                    def _h = now.getHour()
+                    if(_h > 12){
                         echo "Darek-OK"
                     } else {
                         echo "Darek-KO"
