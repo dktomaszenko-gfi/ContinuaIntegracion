@@ -1,0 +1,34 @@
+pipeline
+	{
+	    agent any
+	    stages
+	    {
+	        stage("Muestro el primer numero")
+	        {
+	            steps
+	            {
+	                script
+	                {
+	                if( numero1 == 1)
+	                {
+	                    echo 'El numero es valido!'
+	                }
+	                else
+	                {
+	                    ceho 'Ingresar un numero valido'
+	                }
+	                }
+	            }
+	        }
+	        stage("Muestro el segundo numero")
+	        {
+	            steps
+	            {
+	                println numero2
+	                
+	            }
+	            
+	        }
+	        
+	    }
+	}
