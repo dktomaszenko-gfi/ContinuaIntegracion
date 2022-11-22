@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Info') {
             steps {
-                echo "Proceso ejecutado por ${userName}, identificado como ${userID}"
+                echo "Proceso ejecutado por ${userName}, ID de usuario: ${userID}"
             }
         }
         stage('Java version') {
@@ -20,6 +20,17 @@ pipeline {
                 mostrarVersionMaven("Output")
             }
         }
+        stage("Fecha actual")
+            {
+                steps
+                {
+                    script
+                    {
+                        def fecha = new Date()
+                        println fecha
+                    }
+                }
+            }
      
     }
 }
