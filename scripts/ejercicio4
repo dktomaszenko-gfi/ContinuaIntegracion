@@ -1,39 +1,28 @@
-def topPeli = "La lista de Schindler, El señor de los anillos, Tiempos violentos, El bueno, el malo y el feo, El Padrino"
-def comidaFavorita = 'Pizza'
-def zodiag = 'Virgo'
-def puesto = 'Presidente de un pais con paraiso fiscal'
-def salBruto = 100000
-def job = Jenkins.getInstance().getItemByFullName(env.JOB_BASE_NAME, Job.class)
-def build = job.getBuildByNumber(env.BUILD_ID as int)
-def userId = build.getCause(Cause.UserIdCause).getUserId()
-
-def calcNeto(Integer salBruto)
+userName = 'Darek'
+userID = 'dktomaszenko'
+def mostrarVersionMaven(String a)
 {
-    if(salBruto < 1000){
-        println "Tu salario es menor de lo que deberías cobrar, busca otro trabajo"
-    } else {
-        println salBruto * 0.80
-    }
+    bat "java -version"
+    echo a
 }
 
 pipeline {
     agent any
 
     stages {
-        stage('job') {
+        stage('Nombre usuario') {
             steps {
-                println job
+                println userName
             }
         }
-        stage('build') {
+        stage('ID usuario') {
             steps {
-                println build
+                println userID
             }
         }
-        stage('userId') {
+        stage('Java version') {
             steps {
-                println userId
-            }
+                mostrarVersionMaven()
         }
      
     }
