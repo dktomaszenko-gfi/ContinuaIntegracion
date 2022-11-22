@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     def now = new Date()
-                    println now.format("HH", TimeZone.getTimeZone('UTC'))
+                    println now.format("HH.mm", TimeZone.getTimeZone('Europe/Madrid'))
                 }
             } 
         }            
