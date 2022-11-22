@@ -1,0 +1,23 @@
+def clima = "Nublado y hace frío"
+def habitantes = 50000
+pipeline {
+    agent any
+
+    stages {
+        stage('Clima') {
+            steps {
+                echo clima
+            }
+        }
+        stage("Poblacion neta")
+            {
+                steps
+                {
+                    script {
+                        println habitantes / 2
+                    }
+                }
+                
+            }        
+    }
+}
