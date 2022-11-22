@@ -1,52 +1,87 @@
 def ciudad = "Alicante"
 def miNombre = "Darek"
-def numero1 = 1
-def numero2 = 2
+def numeroA = 1
+def numeroB = 2
 
 pipeline
-	{
-	    agent any
-	    stages
-	    {
-	        stage("Fecha actual")
-	        {
-	            steps
-	            {
-	                script
-	                {
+    {
+        agent any
+        stages
+        {
+            stage("Fecha actual")
+            {
+                steps
+                {
+                    script
+                    {
                         def fecha = new Date()
-	                    println fecha
-	                }
-	            }
-	        }
-	        stage("Ciudad donde resides actualmente")
-	        {
-	            steps
-	            {
-	                println ciudad
-	                
-	            }
-	            
-	        }
-	        stage("Nombre del ejecutante")
-	        {
-	            steps
-	            {
-	                println miNombre
-	                
-	            }
-	            
-	        }
-	        stage("Suma")
-	        {
-	            steps
-	            {
-	                script {
-	                    printIn numero1 + numero2
-	                }
-	            }
-	            
-	        }	        
-	        
-	    }
-	}
+                        println fecha
+                    }
+                }
+            }
+            stage("Ciudad donde resides actualmente")
+            {
+                steps
+                {
+                    println ciudad
+                    
+                }
+                
+            }
+            stage("Nombre del ejecutante")
+            {
+                steps
+                {
+                    println miNombre
+                    
+                }
+                
+            }
+            stage("Suma")
+            {
+                steps
+                {
+                    script {
+                        println numeroA + numeroB
+                    }
+                }
+                
+            }
+            stage("Resta")
+            {
+                steps
+                {
+                    script {
+                        println numeroB - numeroA
+                    }
+                }
+                
+            }
+            stage("Dividir")
+            {
+                steps
+                {
+                    script {
+                     if( numeroB == 0) {
+                        echo 'El numero no es valido!'
+                       }
+                     else {
+                        println numeroB / numeroA
+                     }
+
+                    }
+                }
+                
+            }
+            stage("Multi")
+            {
+                steps
+                {
+                    script {
+                        println numeroA * numeroB
+                    }
+                }
+                
+            }            
+        }
+    }
