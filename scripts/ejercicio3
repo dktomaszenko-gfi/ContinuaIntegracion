@@ -1,21 +1,52 @@
-def clima = "Nublado y hace frío"
-def habitantes = 50000
+def topPeli = "La lista de Schindler, El señor de los anillos, Tiempos violentos, El bueno, el malo y el feo, El Padrino"
+def comidaFavorita = 'Pizza'
+def zodiag = 'Virgo'
+def puesto = 'Presidente de un pais con paraiso fiscal'
+def salBruto = 100000
+
+def calcNeto(Integer salBruto)
+{
+    if(salBruto < 1000){
+        println "Tu salario es menor de lo que deberías cobrar, busca otro trabajo"
+    } else {
+        println salBruto * 0.80
+    }
+}
+
 pipeline {
     agent any
 
     stages {
-        stage('Clima') {
+        stage('Top 5 de peliculas favoritas') {
             steps {
-                echo clima
+                echo topPeli
             }
         }
-        stage("Poblacion neta")
+        stage('Comida favorita') {
+            steps {
+                echo comidaFavorita
+            }
+        }
+        stage('Signo zodiacal') {
+            steps {
+                echo zodiag
+            }
+        }
+        stage('Puesto actual') {
+            steps {
+                echo puesto
+            }
+        }
+        stage('Salario bruto') {
+            steps {
+                echo puesto
+            }
+        }
+        stage("Salario Neto")
             {
                 steps
                 {
-                    script {
-                        println habitantes / 2
-                    }
+                    calcNeto(salBruto)
                 }
                 
             }        
