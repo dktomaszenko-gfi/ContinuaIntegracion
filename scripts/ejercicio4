@@ -1,0 +1,54 @@
+def topPeli = "La lista de Schindler, El señor de los anillos, Tiempos violentos, El bueno, el malo y el feo, El Padrino"
+def comidaFavorita = 'Pizza'
+def zodiag = 'Virgo'
+def puesto = 'Presidente de un pais con paraiso fiscal'
+def salBruto = 100000
+
+def calcNeto(Integer salBruto)
+{
+    if(salBruto < 1000){
+        println "Tu salario es menor de lo que deberías cobrar, busca otro trabajo"
+    } else {
+        println salBruto * 0.80
+    }
+}
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Top 5 de peliculas favoritas') {
+            steps {
+                echo topPeli
+            }
+        }
+        stage('Comida favorita') {
+            steps {
+                echo comidaFavorita
+            }
+        }
+        stage('Signo zodiacal') {
+            steps {
+                echo zodiag
+            }
+        }
+        stage('Puesto actual') {
+            steps {
+                echo puesto
+            }
+        }
+        stage('Salario bruto') {
+            steps {
+                println salBruto
+            }
+        }
+        stage("Salario Neto")
+            {
+                steps
+                {
+                    calcNeto(salBruto)
+                }
+                
+            }        
+    }
+}
