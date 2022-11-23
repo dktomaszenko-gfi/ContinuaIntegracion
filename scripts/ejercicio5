@@ -1,0 +1,72 @@
+
+def showJavaVersion()
+{
+    bat "java -version"
+}
+def day = new Date().getDay()
+
+def getDayName(Integer day){
+
+    def map=[
+        1:"Lunes",
+        2:"Martes",
+        3:"Miercoles",
+        4:"Jueves",
+        5:"Viernes",
+        6:"Sabado",
+        7:"Domingo",
+    ]
+    
+    return map[day]
+}
+
+def getClima() {
+    return "Temperatura 20º, Nublado"
+}
+
+def getSuma(Integer a, Integer b) {
+    return a + b
+}
+
+def getNumPI() {
+    return 3.14159
+}
+
+def getUser() {
+   def userName = 'Darek'
+   def userID = 'dktomaszenko'
+   return "${userName} (${userID})"
+}
+
+pipeline {
+    agent any
+
+    stages {
+        stage("Ejetcicio"){
+                steps
+                {
+                    script
+                    {
+                        switch(day) {            
+                            case 1: 
+                                println getClima()
+                                break; 
+                            case 2: 
+                                println getSuma()
+                                break; 
+                            case 3: 
+                                println getNumPI()
+                                break; 
+                            case 4: 
+                                println getUser()
+                                break; 
+                            default: 
+                                println showJavaVersion()
+                                break; 
+                        }
+                    }
+                }
+            }        
+   
+    }
+}
