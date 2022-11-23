@@ -1,0 +1,44 @@
+
+def showJavaVersion(){
+    bat "java -version"
+}
+
+def showIPconfig(){
+    bat "ipconfig /flushdns"
+}
+
+def showTime(){
+    bat "TIME"
+}
+
+def getHour(){
+    def str = new Date().format('HH')
+    int intHora = str as Integer
+    return intHora
+}
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage("Ejercicio"){
+                steps
+                {
+                    script
+                    {
+                        if((getHour() >= 0) && (getHour() <= 10)){
+                            showIPconfig()
+                        } else if((getHour() >= 11) && (getHour() <= 15)) {
+                            showJavaVersion()
+                        } else if((getHour() >= 16) && (getHour() <= 22)) {
+                            showTime()
+                        } else {
+                            println "no hacemos nada"
+                        }
+                    }
+                }
+            }        
+   
+    }
+}
